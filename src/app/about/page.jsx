@@ -1,0 +1,26 @@
+'use client'
+
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+
+export default function AboutPage() {
+    const router = useRouter();
+    const isLoggedIn = true;
+    const handleNavigation = () => {
+        if(isLoggedIn){
+            router.push("/about/address");
+        } else {
+            router.push("/");
+        }
+    }
+  return (
+    <div>
+      <p className="font-bold text-3xl">AboutPage</p>
+            <Link href="/about/address">
+                <button type="button" onClick={handleNavigation}>
+                    Address page</button>
+            </Link>
+    </div>
+  );
+}
